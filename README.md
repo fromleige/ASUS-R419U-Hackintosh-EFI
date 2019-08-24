@@ -24,7 +24,7 @@
 ​	好了，这个条件达成后，就说这安装及使用：
 
 ​			请打开finder->实用工具->终端在本EFI项目路径运行:
-                        1. sudo chmod 775 install.sh
+​                        1. sudo chmod 775 install.sh
 
 ​		        2.sudo ./install.sh
 
