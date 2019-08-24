@@ -26,7 +26,7 @@
 
 ​			然后输入密码，有个logo界面：
 
-​			![762C259B-9A8E-4A22-AFC0-69AE5522FDC9](/Users/formleige/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/1697782144/QQ/Temp.db/762C259B-9A8E-4A22-AFC0-69AE5522FDC9.png)
+​	![](/Users/formleige/Desktop/test.jpg)
 
 ​        这个界面的确有点丑些，我第一次用Shell脚本写自己的脚本，因为我要把Shell脚本知识运用到自己的实际生活中。
 
