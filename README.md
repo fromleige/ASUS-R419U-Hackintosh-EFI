@@ -26,7 +26,7 @@
 
 ​			然后输入密码，有个logo界面：
 
-​	![](/Users/formleige/Desktop/test.jpg)
+​	![](https://github.com/fromleige/ASUS-R419U-Hackintosh-EFI/blob/master/test.jpg)
 
 ​        这个界面的确有点丑些，我第一次用Shell脚本写自己的脚本，因为我要把Shell脚本知识运用到自己的实际生活中。
 
