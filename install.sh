@@ -26,7 +26,7 @@ function install_mod()
 		echo -e "2.挂载分区"
 		echo -e "3.安装EFI及备份"
 		echo -e "4.卸载EFI分区"
-		echo -e "5. 退出程序"
+		echo -e "5. 返回主界面"
 		read number
 		case $number in 
 			1)
@@ -66,8 +66,8 @@ function install_mod()
 				sudo diskutil umount /dev/$number
 				;;
 			5)
-				echo "退出程序"
-				exit -1
+				
+				style_main
 				;;
 		esac						
 	done
@@ -84,7 +84,7 @@ function remove_mod()
 		echo -e "2.挂载分区"
 		echo -e "3.删除EFI及备份"
 		echo -e "4.卸载EFI分区"
-		echo -e "5. 退出程序"
+		echo -e "5. 返回主界面"
 		read number
 		case $number in 
 			1)
@@ -116,8 +116,7 @@ function remove_mod()
 				echo "取消挂载成功"
 				;;
 			5)
-				echo "退出程序"
-				exit -1
+				style_main
 				;;
 		esac						
 	done
@@ -128,6 +127,8 @@ function install_wifi()
 	echo "正在安装ar956x系列网卡"
 	sh ar956x-drv-osx/ar956x-inst.sh
 	echo "安装成功"
+	
+	style_main
 }
 
 function install_BT()
@@ -141,41 +142,52 @@ function install_BT()
 	sudo rm -rf /System/Library/PrelinkedKernels/prelinkedkernel
 	sudo touch /System/Library/Extensions && sudo touch /Library/Extensions && sudo kextcache -u /
 	echo "修复缓存成功,请手动重启" 
+	
+	style_main
 }
 
 
-while true  #此循环一直循环界面
-do
-	logo #这是命令行界面
+function style_main()
+{
+	while true  #此循环一直循环界面
+	do
+		logo #这是命令行界面
 
-	#这是安装界面的代码循环
-	read  number
+		#这是安装界面的代码循环
+		read  number
 
-	case $number in
-		1)
-			install_mod
-			;;
-		2)
-			remove_mod
-			;;
-		3)
-			install_wifi
-			;;
-		4)
-			rm -rf /Users/$(users)/Desktop/backups/*
-			rmdir /Users/$(users)/Desktop/backups
-			;;
+		case $number in
+			1)
+				install_mod
+				;;
+			2)
+				remove_mod
+				;;
+			3)
+				install_wifi
+				
+				;;
+			4)
+				rm -rf /Users/$(users)/Desktop/backups/*
+				rmdir /Users/$(users)/Desktop/backups
+				style_main
+				;;
 	
-		5)
-			rm -rf /Users/$(users)/Desktop/backups/*
-			;;
+			5)
+				rm -rf /Users/$(users)/Desktop/backups/*
+				style_main
+				;;
 		
-		6)
-			install_BT
-			;;
-		7)	
-			exit -1
-			;;
-	esac
-done
+			6)
+				install_BT
+				;;
+			7)	
+				exit -1
+				;;
+		esac
+	done
+
+}
+
+style_main
 
