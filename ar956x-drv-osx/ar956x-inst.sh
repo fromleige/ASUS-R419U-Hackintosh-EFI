@@ -13,11 +13,11 @@ VER_NUM=$(echo $OSVER | awk -F'.' '{print $2}')
 if [ "$VER_NUM" -ge "14" ]; then
     # 10.14+
     sudo rm -rf /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext
-    sudo cp -r $OSVER/AirPortAtheros40.kext /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/
+    sudo cp -r ar956x-drv-osx/$OSVER/AirPortAtheros40.kext /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/
 else
     # 10.8 - 10.13
     sudo rm -rf /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/MacOS/AirPortAtheros40
-    sudo cp $OSVER/AirPortAtheros40 /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/MacOS/
+    sudo cp ar956x-drv-osx/$OSVER/AirPortAtheros40 /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/MacOS/
     sudo sed -i "" 's/pci168c,30/pci168c,36/g' /System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/AirPortAtheros40.kext/Contents/Info.plist
 fi
 

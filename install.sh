@@ -129,7 +129,7 @@ function remove_mod()
 function install_wifi()
 {
 	echo "正在安装ar956x系列网卡"
-	sh ar956x-drv-osx/ar956x-inst.sh
+	ar956x-drv-osx/ar956x-inst.sh
 	echo "安装成功"
 	
 	style_main
@@ -139,9 +139,12 @@ function install_wifi()
 function install_BT()
 {
 	echo "正在安装蓝牙驱动中"
-	mv /System/Library/Extension/IOBluetoothFamily.kext /System/Library/Extension/IOBluetoothFamily.kext.bak
-	cp -r Bluetooth_Driver/System/IOBluetoothFamily.kext /System/Library/Extension
-	cp -r Bluetooth_Driver/Other/* /Library/Extension 
+        sudo rm -rf /System/Library/Extensions/IOBluetoothFamily.kext.bak/
+	sudo mv /System/Library/Extensions/IOBluetoothFamily.kext /System/Library/Extensions/IOBluetoothFamily.kext.bak/
+	sudo cp -r Bluetooth_Driver/System/IOBluetoothFamily.kext /System/Library/Extensions/
+	sudo rm -rf /Library/Extensions/Brcm*
+	sudo cp -r Bluetooth_Driver/Other/BrcmFirmwareData.kext /Library/Extensions/ 
+	sudo cp -r Bluetooth_Driver/Other/BrcmPatchRAM2.kext /Library/Extensions/
 	echo "安装成功，正在修复缓存中"
 	sudo rm -rf /System/Library/Caches/com.apple.kext.caches/Startup/kernelcache
 	sudo rm -rf /System/Library/PrelinkedKernels/prelinkedkernel
