@@ -29,9 +29,7 @@
 
 ​				然后输入密码，再输入运行脚本命令
 
-​			  2. ./install.sh
-
-​				
+​			  2. ./install.sh			
 
 ​	![](https://github.com/fromleige/ASUS-R419U-Hackintosh-EFI/blob/master/images/readme/v2-0.png)
 
