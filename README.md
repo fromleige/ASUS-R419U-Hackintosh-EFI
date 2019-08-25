@@ -1,7 +1,10 @@
 ##  **ASUS R419U Hackintosh EFI **
 
+        
 ​      本EFI是ASUS R419U 的黑果安装完善版，有安装脚本和无线网卡工具，如是此笔记本电脑，请善用，因为EFI也有不完美之处。
-
+        
+       EFI 系统版本：10.14.6
+       Clover bootloader Version:5050
 ​      下面有几个Bug：
 
 > ​			1.蓝牙就不用说了，蓝牙就算能用，也有bug
@@ -22,11 +25,11 @@
 
 ​			请打开finder->实用工具->终端在本EFI项目路径运行:
 
-​			sudo ./install.sh
+​		        sudo ./install.sh
 
 ​			然后输入密码，有个logo界面：
 
-​	![](/Users/formleige/Desktop/test.jpg)
+​	![](https://github.com/fromleige/ASUS-R419U-Hackintosh-EFI/blob/master/test.jpg)
 
 ​        这个界面的确有点丑些，我第一次用Shell脚本写自己的脚本，因为我要把Shell脚本知识运用到自己的实际生活中。
 
@@ -36,5 +39,5 @@
 
 ​       而且DSDT的，可能需要自己打触摸板的补丁才能使用触摸板，这是最现实的一件事。
 
-​      好了，这个脚本要是觉得挺好的话，那就赞美吧，反正我这脚本是闲时第一次写的。哈哈
+​      好了，这个脚本要是觉得挺好的话，那就赞美吧，反正我这脚本是闲时第一次写的。哈哈.
 
