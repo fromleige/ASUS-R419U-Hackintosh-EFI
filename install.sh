@@ -2,6 +2,7 @@
 #Version:2.0
 #Author:fromleige
 
+#logo界面
 function logo()
 {
 	echo -e "************************************"
@@ -16,6 +17,7 @@ function logo()
 	echo -e "************************************"
 }
 
+#安装EFI函数
 function install_mod()
 {
 	while true
@@ -73,6 +75,7 @@ function install_mod()
 	done
 }
 
+#删除EFI函数
 function remove_mod()
 {
 
@@ -122,6 +125,7 @@ function remove_mod()
 	done
 }
 
+#安装此笔记本电脑无线网卡
 function install_wifi()
 {
 	echo "正在安装ar956x系列网卡"
@@ -131,6 +135,7 @@ function install_wifi()
 	style_main
 }
 
+#安装此蓝牙驱动
 function install_BT()
 {
 	echo "正在安装蓝牙驱动中"
