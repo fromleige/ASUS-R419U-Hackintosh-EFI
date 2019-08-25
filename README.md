@@ -33,7 +33,7 @@
 
 ​				
 
-​	![](https://github.com/fromleige/ASUS-R419U-Hackintosh-EFI/blob/master/images/readme/test.jpg)
+​	![](https://github.com/fromleige/ASUS-R419U-Hackintosh-EFI/blob/master/images/readme/test1.jpg)
 
 ​        这个界面的确有点丑些，我第一次用Shell脚本写自己的脚本，因为我要把Shell脚本知识运用到自己的实际生活中。
 
