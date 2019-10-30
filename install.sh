@@ -35,29 +35,31 @@ function install_mod()
 			   sudo diskutil list
 				;;
 			2)
-				echo -e "请输入分区号"
+				echo -e "请输入分区号(示例：disk1s1）"
 				read number
 				sudo diskutil mount /dev/$number
 
 				;;
 			3)
 					echo -e "安装EFI界面"
-					echo -e "列出EFI分区号标记"
+					echo -e "列出EFI分区名"
 					ls -al /Volumes/
-					echo -e "请输入分区号"
-					read number
+					
 					echo -e "请输入分区名"
 					read diskname
-					mkdir /Users/$(users)/Desktop/backups
+					sudo mkdir /Users/$(users)/Desktop/backups
 
-					cp -r /Volumes/$diskname/EFI /Users/$(users)/Desktop/backups/EFI
+					sudo cp -r /Volumes/$diskname/EFI /Users/$(users)/Desktop/backups/EFI
 
 					version=$(sw_vers -productVersion) 
 					echo "自动选择版本"
 					if [ $version == "10.14.6" ];
 					then
-						cp -r Version/10.14.6/EFI /Volumes/$diskname 
-					fi
+						sudo cp -r Version/10.14.6/EFI /Volumes/$diskname 
+					elif [ $version == "10.15.1" ];
+					then
+						sudo cp -r Version/10.15.1/EFI /Volumes/$diskname 
+					fi 
 
 					echo "安装EFI成功"
 
@@ -94,7 +96,7 @@ function remove_mod()
 			   sudo diskutil list
 				;;
 			2)
-				echo -e "请输入分区号"
+				echo -e "请输入分区号(示例：disk1s1）"
 				read number
 				sudo diskutil mount /dev/$number
 
@@ -106,8 +108,8 @@ function remove_mod()
 					echo -e "请输入分区名"
 					read diskname
 
-					rm -rf /Volumes/$diskname/EFI
-					cp -r /Users/$(users)/Desktop/backups/EFI /Volumes/$diskname
+					sudo rm -rf /Volumes/$diskname/*
+					sudo cp -r /Users/$(users)/Desktop/backups/EFI /Volumes/$diskname
 				
 					echo "删除EFI成功"
 
@@ -139,7 +141,7 @@ function install_wifi()
 function install_BT()
 {
 	echo "正在安装蓝牙驱动中"
-        sudo rm -rf /System/Library/Extensions/IOBluetoothFamily.kext.bak/
+    sudo rm -rf /System/Library/Extensions/IOBluetoothFamily.kext.bak/
 	sudo mv /System/Library/Extensions/IOBluetoothFamily.kext /System/Library/Extensions/IOBluetoothFamily.kext.bak/
 	sudo cp -r Bluetooth_Driver/System/IOBluetoothFamily.kext /System/Library/Extensions/
 	sudo rm -rf /Library/Extensions/Brcm*
@@ -157,6 +159,7 @@ function install_BT()
 
 function style_main()
 {
+	sudo mount -rw /
 	while true  #此循环一直循环界面
 	do
 		logo #这是命令行界面
